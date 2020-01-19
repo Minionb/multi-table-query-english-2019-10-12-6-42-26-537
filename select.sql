@@ -20,7 +20,7 @@ select * from student inner join student_course on student_course.studentId=stud
 select score from student_course where score<60 order by score desc limit 1;
 
 # 8.Query the average grade of each course. The results are ranked in descending order of average grade. When the average grades are the same, they are sorted in ascending order by course number.
-select student_course.courseId, course.name, avg(student_course.score) from course inner join student_course where course.id = student_course.courseId group by student_course.courseId order by avg(student_course.score) desc, student_course.courseId ASC
+select student_course.courseId, course.name, avg(student_course.score) from course inner join student_course where course.id = student_course.courseId group by student_course.courseId order by avg(student_course.score) desc, student_course.courseId ASC;
 
 # 9.Query the name and score of a student whose course name is "Math" and whose score is less than 60
 select student.name, course.name, student_course.score from student inner join course inner join student_course where student.id = student_course.studentId and student_course.courseId = course.id having course.name = "Math" and student_course.score < 60;
